@@ -1,0 +1,645 @@
+/* Расширенные переменные и стили для проекта Capico */
+:root {
+	/* Основные цвета */
+	--color-primary: #5F29B7;
+	--color-primary-hover: #7C3AED;
+	--color-primary-light: #904BFF;
+	--color-secondary: #8f00ff;
+	--color-text: #fff;
+	--color-text-secondary: #b7b1c3;
+	--color-text-muted: #8f889a;
+	--color-border: #402e5c;
+	--color-background: #000;
+	--color-background-dark: #0E0915;
+	--color-background-purple: #340e73;
+	--color-background-light-purple: #7061aa;
+	--color-gradient-start: #fff;
+	--color-gradient-end: #5f29b7;
+	
+	/* Размеры отступов */
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 1.5rem;
+	--spacing-xl: 3rem;
+	--spacing-2xl: 5rem;
+	
+	/* Размеры скруглений */
+	--border-radius-xs: 4px;
+	--border-radius-sm: 8px;
+	--border-radius-md: 25px;
+	--border-radius-lg: 40px;
+	--border-radius-xl: 70px;
+	
+	/* Переходы */
+	--transition-fast: all 0.2s ease;
+	--transition-medium: all 0.3s ease;
+	--transition-slow: all 0.5s ease;
+	
+	/* Шрифты */
+	--font-family-nekst: 'Nekst-Regular', sans-serif;
+	--font-family-nekst-light: 'Nekst-Light', sans-serif;
+	--font-family-nekst-medium: 'Nekst-Medium', sans-serif;
+	--font-family-nekst-semibold: 'Nekst-SemiBold', sans-serif;
+	--font-family-sf: 'SF Pro Text', sans-serif;
+	
+	/* Размеры шрифтов */
+	--font-size-xs: 0.75rem;
+	--font-size-sm: 0.875rem;
+	--font-size-md: 1rem;
+	--font-size-lg: 1.25rem;
+	--font-size-xl: 1.5rem;
+	--font-size-2xl: 2rem;
+	--font-size-3xl: 3rem;
+	
+	/* Тени */
+	--shadow-default: 0 4px 24px rgba(0,0,0,0.15);
+	--shadow-elevated: 0 10px 30px rgba(0,0,0,0.25);
+	
+	/* Контейнеры */
+	--container-max-width: 1280px;
+	--container-padding: 1.5rem;
+	
+	/* Точки перехода для медиа-запросов */
+	--breakpoint-sm: 576px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1200px;
+}
+
+/* =========================================
+   Базовые стили
+========================================= */
+html, body {
+	margin: 0;
+	padding: 0;
+	color: var(--color-text);
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	font-family: var(--font-family-sf);
+	font-size: var(--font-size-md);
+	line-height: 1.5;
+	background: var(--color-background);
+	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.content {
+	flex: 1 1 auto;
+}
+
+html{
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-primary) var(--color-background-dark);
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--color-primary);
+	border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--color-background-dark);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+	color: var(--color-text);
+	transition: var(--transition-fast);
+}
+
+li{
+	list-style: none;
+}
+
+img{
+	display: block;
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+	user-select: none;
+}
+
+textarea{
+	resize: none;
+}
+
+button{
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-family: inherit;
+	padding: 0;
+	color: inherit;
+	transition: var(--transition-fast);
+}
+
+/* =========================================
+   Типографика
+========================================= */
+.title{
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.3;
+	color: var(--color-text);
+}
+
+.title-large {
+	font-size: var(--font-size-3xl);
+	margin-bottom: var(--spacing-lg);
+}
+
+.title-medium {
+	font-size: var(--font-size-2xl);
+	margin-bottom: var(--spacing-md);
+}
+
+.title-small {
+	font-size: var(--font-size-xl);
+	margin-bottom: var(--spacing-sm);
+}
+
+.text-primary {
+	color: var(--color-text);
+	line-height: 1.6;
+}
+
+.text-secondary {
+	color: var(--color-text-secondary);
+	line-height: 1.6;
+}
+
+.text-muted {
+	color: var(--color-text-muted);
+	line-height: 1.6;
+}
+
+.font-nekst {
+	font-family: var(--font-family-nekst);
+}
+
+.font-nekst-light {
+	font-family: var(--font-family-nekst-light);
+}
+
+.font-nekst-medium {
+	font-family: var(--font-family-nekst-medium);
+}
+
+.font-nekst-semibold {
+	font-family: var(--font-family-nekst-semibold);
+}
+
+.font-sf {
+	font-family: var(--font-family-sf);
+}
+
+/* =========================================
+   Кнопки
+========================================= */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--border-radius-md);
+	transition: var(--transition-medium);
+	font-weight: 500;
+	text-align: center;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.btn-primary {
+	background-color: var(--color-primary);
+	color: var(--color-text);
+}
+
+.btn-primary:hover {
+	background-color: var(--color-primary-hover);
+}
+
+.btn-primary svg {
+	fill: var(--color-text);
+}
+
+.btn-primary:hover svg {
+	fill: var(--color-text);
+}
+
+.btn-large {
+	padding: 1rem 2rem;
+	font-size: var(--font-size-lg);
+}
+
+.btn-medium {
+	padding: 0.75rem 1.5rem;
+	font-size: var(--font-size-md);
+}
+
+.btn-small {
+	padding: 0.5rem 1rem;
+	font-size: var(--font-size-sm);
+}
+
+/* Кнопка с градиентной рамкой */
+.gradient-border {
+	position: relative;
+	border-radius: var(--border-radius-md);
+}
+
+.gradient-border::before {
+	content: '';
+	position: absolute;
+	inset: -2px;
+	z-index: -1;
+	background: linear-gradient(45deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+	border-radius: inherit;
+	transition: var(--transition-medium);
+	opacity: 1;
+}
+
+.gradient-border::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: var(--color-background);
+	border-radius: inherit;
+	z-index: -1;
+	transition: var(--transition-medium);
+}
+
+/* =========================================
+   Утилитарные классы
+========================================= */
+/* Флексбокс */
+.d-flex {
+	display: flex;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.align-start {
+	align-items: flex-start;
+}
+
+/* Основная структура */
+.main {
+	flex: 1;
+}
+
+.container {
+	width: 100%;
+	max-width: var(--container-max-width);
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+}
+
+.section {
+	padding: var(--spacing-xl) 0;
+	position: relative;
+}
+
+/* Анимация вращения для логотипа */
+@keyframes spinLogo {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* =========================================
+   Отображение и сетка
+========================================= */
+.d-none {
+	display: none !important;
+}
+
+.d-block {
+	display: block !important;
+}
+
+.d-flex {
+	display: flex !important;
+}
+
+.d-grid {
+	display: grid !important;
+}
+
+@media (min-width: 576px) {
+	.d-sm-none {
+		display: none !important;
+	}
+	.d-sm-block {
+		display: block !important;
+	}
+	.d-sm-flex {
+		display: flex !important;
+	}
+	.d-sm-grid {
+		display: grid !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.d-md-none {
+		display: none !important;
+	}
+	.d-md-block {
+		display: block !important;
+	}
+	.d-md-flex {
+		display: flex !important;
+	}
+	.d-md-grid {
+		display: grid !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.d-lg-none {
+		display: none !important;
+	}
+	.d-lg-block {
+		display: block !important;
+	}
+	.d-lg-flex {
+		display: flex !important;
+	}
+	.d-lg-grid {
+		display: grid !important;
+	}
+}
+
+@media (min-width: 1200px) {
+	.d-xl-none {
+		display: none !important;
+	}
+	.d-xl-block {
+		display: block !important;
+	}
+	.d-xl-flex {
+		display: flex !important;
+	}
+	.d-xl-grid {
+		display: grid !important;
+	}
+}
+
+/* =========================================
+   Отступы
+========================================= */
+.m-0 { margin: 0 !important; }
+.m-1 { margin: var(--spacing-xs) !important; }
+.m-2 { margin: var(--spacing-sm) !important; }
+.m-3 { margin: var(--spacing-md) !important; }
+.m-4 { margin: var(--spacing-lg) !important; }
+.m-5 { margin: var(--spacing-xl) !important; }
+
+.mt-0 { margin-top: 0 !important; }
+.mt-1 { margin-top: var(--spacing-xs) !important; }
+.mt-2 { margin-top: var(--spacing-sm) !important; }
+.mt-3 { margin-top: var(--spacing-md) !important; }
+.mt-4 { margin-top: var(--spacing-lg) !important; }
+.mt-5 { margin-top: var(--spacing-xl) !important; }
+
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: var(--spacing-xs) !important; }
+.mb-2 { margin-bottom: var(--spacing-sm) !important; }
+.mb-3 { margin-bottom: var(--spacing-md) !important; }
+.mb-4 { margin-bottom: var(--spacing-lg) !important; }
+.mb-5 { margin-bottom: var(--spacing-xl) !important; }
+
+.ml-0 { margin-left: 0 !important; }
+.ml-1 { margin-left: var(--spacing-xs) !important; }
+.ml-2 { margin-left: var(--spacing-sm) !important; }
+.ml-3 { margin-left: var(--spacing-md) !important; }
+.ml-4 { margin-left: var(--spacing-lg) !important; }
+.ml-5 { margin-left: var(--spacing-xl) !important; }
+
+.mr-0 { margin-right: 0 !important; }
+.mr-1 { margin-right: var(--spacing-xs) !important; }
+.mr-2 { margin-right: var(--spacing-sm) !important; }
+.mr-3 { margin-right: var(--spacing-md) !important; }
+.mr-4 { margin-right: var(--spacing-lg) !important; }
+.mr-5 { margin-right: var(--spacing-xl) !important; }
+
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.my-0 { margin-top: 0 !important; margin-bottom: 0 !important; }
+.my-1 { margin-top: var(--spacing-xs) !important; margin-bottom: var(--spacing-xs) !important; }
+.my-2 { margin-top: var(--spacing-sm) !important; margin-bottom: var(--spacing-sm) !important; }
+.my-3 { margin-top: var(--spacing-md) !important; margin-bottom: var(--spacing-md) !important; }
+.my-4 { margin-top: var(--spacing-lg) !important; margin-bottom: var(--spacing-lg) !important; }
+.my-5 { margin-top: var(--spacing-xl) !important; margin-bottom: var(--spacing-xl) !important; }
+
+.p-0 { padding: 0 !important; }
+.p-1 { padding: var(--spacing-xs) !important; }
+.p-2 { padding: var(--spacing-sm) !important; }
+.p-3 { padding: var(--spacing-md) !important; }
+.p-4 { padding: var(--spacing-lg) !important; }
+.p-5 { padding: var(--spacing-xl) !important; }
+
+.pt-0 { padding-top: 0 !important; }
+.pt-1 { padding-top: var(--spacing-xs) !important; }
+.pt-2 { padding-top: var(--spacing-sm) !important; }
+.pt-3 { padding-top: var(--spacing-md) !important; }
+.pt-4 { padding-top: var(--spacing-lg) !important; }
+.pt-5 { padding-top: var(--spacing-xl) !important; }
+
+.pb-0 { padding-bottom: 0 !important; }
+.pb-1 { padding-bottom: var(--spacing-xs) !important; }
+.pb-2 { padding-bottom: var(--spacing-sm) !important; }
+.pb-3 { padding-bottom: var(--spacing-md) !important; }
+.pb-4 { padding-bottom: var(--spacing-lg) !important; }
+.pb-5 { padding-bottom: var(--spacing-xl) !important; }
+
+.pl-0 { padding-left: 0 !important; }
+.pl-1 { padding-left: var(--spacing-xs) !important; }
+.pl-2 { padding-left: var(--spacing-sm) !important; }
+.pl-3 { padding-left: var(--spacing-md) !important; }
+.pl-4 { padding-left: var(--spacing-lg) !important; }
+.pl-5 { padding-left: var(--spacing-xl) !important; }
+
+.pr-0 { padding-right: 0 !important; }
+.pr-1 { padding-right: var(--spacing-xs) !important; }
+.pr-2 { padding-right: var(--spacing-sm) !important; }
+.pr-3 { padding-right: var(--spacing-md) !important; }
+.pr-4 { padding-right: var(--spacing-lg) !important; }
+.pr-5 { padding-right: var(--spacing-xl) !important; }
+
+.px-0 { padding-left: 0 !important; padding-right: 0 !important; }
+.px-1 { padding-left: var(--spacing-xs) !important; padding-right: var(--spacing-xs) !important; }
+.px-2 { padding-left: var(--spacing-sm) !important; padding-right: var(--spacing-sm) !important; }
+.px-3 { padding-left: var(--spacing-md) !important; padding-right: var(--spacing-md) !important; }
+.px-4 { padding-left: var(--spacing-lg) !important; padding-right: var(--spacing-lg) !important; }
+.px-5 { padding-left: var(--spacing-xl) !important; padding-right: var(--spacing-xl) !important; }
+
+.py-0 { padding-top: 0 !important; padding-bottom: 0 !important; }
+.py-1 { padding-top: var(--spacing-xs) !important; padding-bottom: var(--spacing-xs) !important; }
+.py-2 { padding-top: var(--spacing-sm) !important; padding-bottom: var(--spacing-sm) !important; }
+.py-3 { padding-top: var(--spacing-md) !important; padding-bottom: var(--spacing-md) !important; }
+.py-4 { padding-top: var(--spacing-lg) !important; padding-bottom: var(--spacing-lg) !important; }
+.py-5 { padding-top: var(--spacing-xl) !important; padding-bottom: var(--spacing-xl) !important; }
+
+/* =========================================
+   Текстовые утилиты
+========================================= */
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+.font-weight-light { font-weight: 300 !important; }
+.font-weight-normal { font-weight: 400 !important; }
+.font-weight-medium { font-weight: 500 !important; }
+.font-weight-bold { font-weight: 700 !important; }
+
+/* =========================================
+   Гриды и сетки
+========================================= */
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: var(--spacing-md);
+}
+
+@supports (display: grid) {
+	.grid-container {
+		display: grid;
+	}
+}
+
+.grid-container > * {
+	grid-column: span 12;
+}
+
+@media (min-width: 768px) {
+	.grid-container > * {
+		grid-column: span 6;
+	}
+}
+
+/* =========================================
+   Эффекты
+========================================= */
+.blur-bg {
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+	.blur-bg {
+		backdrop-filter: blur(8px);
+	}
+}
+
+/* =========================================
+   Стили для печати
+========================================= */
+@media print {
+	*,
+	*::before,
+	*::after {
+		background: transparent !important;
+		color: #000 !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+	
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+	
+	a[href]::after {
+		content: " (" attr(href) ")";
+	}
+	
+	abbr[title]::after {
+		content: " (" attr(title) ")";
+	}
+	
+	pre {
+		white-space: pre-wrap !important;
+	}
+	
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+	
+	thead {
+		display: table-header-group;
+	}
+	
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+	
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+	
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
+	
+	.no-print,
+	.no-print * {
+		display: none !important;
+	}
+	
+	.container {
+		max-width: 100% !important;
+	}
+} 
